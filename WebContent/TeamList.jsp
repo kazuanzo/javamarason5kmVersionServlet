@@ -9,6 +9,8 @@
 	<title>Insert title here</title>
 </head>
 <body>
+	<h2>プロ野球</h2>
+	<h2>セントラル・リーグ一覧</h2>
 	<c:forEach var="baseball_Teams" items="${team_List}">
 	    <a href="./TeamDetail?id=${baseball_Teams.id}">${baseball_Teams.teamName}</a><br>
 	</c:forEach>
