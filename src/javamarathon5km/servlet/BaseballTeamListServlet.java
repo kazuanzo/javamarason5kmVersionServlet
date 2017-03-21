@@ -18,15 +18,15 @@ import javamarathon5km.dao.DBmanager;
 @WebServlet("/BaseballTeamListServlet")
 public class BaseballTeamListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
+
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * 全てのベースボールチームを取得し、TeamList.jspに値を送る
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		DBmanager dbm=new DBmanager();
-		
+
 		//DBmanagerにて全てのチームを取得
 		dbm.allBaseballTeam();
 		// ベースボールチームリストをセットする
@@ -34,12 +34,8 @@ public class BaseballTeamListServlet extends HttpServlet {
 		//コンテキスト情報をセット
 		ServletContext context = this.getServletContext();
 		//呼び出し先を指定
-        RequestDispatcher dispatcher = context.getRequestDispatcher("/TeamList.jsp");
+		RequestDispatcher dispatcher = context.getRequestDispatcher("/TeamList.jsp");
 		//セットした値をフォワードする
-        dispatcher.forward(request, response);
-	
+		dispatcher.forward(request, response);
 	}
-
-	
-
 }
